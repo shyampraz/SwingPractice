@@ -48,7 +48,7 @@ public class SwingPractice extends JFrame{
         
         JTextArea txtarea=new JTextArea(20,20);
         txtarea.setText("hoolalaaaaaa");
-        
+        //NEW EDIT HERE !!!
         JScrollPane skrol=new JScrollPane(txtarea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         txtarea.setLineWrap(true);
         panek.add(skrol);
