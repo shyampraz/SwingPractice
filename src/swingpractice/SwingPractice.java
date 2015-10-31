@@ -10,18 +10,26 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.*;
 
+
+import java.awt.event.*;
+
 /**
  *
  * @author Shyam Prasad
  */
+
 public class SwingPractice extends JFrame{
 
-    /**
-     * @param args the command line arguments
-     */
+    JButton bb=new JButton();
+    JTextField ff=new JTextField();
+    JTextArea aa=new JTextArea();
+    int buttonclicked;
+    
+    @SuppressWarnings("ResultOfObjectAllocationIgnored")
     public static void main(String[] args) {
         // TODO code application logic here
         new SwingPractice();
+        
     }
     public SwingPractice(){
         this.setSize(500,500);
@@ -46,15 +54,42 @@ public class SwingPractice extends JFrame{
         panek.add(txtfld);
         panek.add(buton);
         
-        JTextArea txtarea=new JTextArea(20,20);
-        txtarea.setText("hoolalaaaaaa");
-        //NEW EDIT HERE !!!
-        JScrollPane skrol=new JScrollPane(txtarea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        txtarea.setLineWrap(true);
-        panek.add(skrol);
+       
+        
+        ListenForButton lfb=new ListenForButton();
+        bb.addActionListener(lfb);
+        panek.add(bb);
+        panek.add(aa);
+        panek.add(ff);
+        
         this.add(panek);
         
         this.setVisible(true);
     }
     
+    class ListenForButton implements ActionListener{
+    
+    @Override
+    public void actionPerformed(ActionEvent e){
+    
+        if(e.getSource() == bb){
+            
+            buttonclicked++;
+            aa.append("button clicked"+buttonclicked+"times");
+            
+            
+        }
+    }
+
 }
+    
+}
+
+
+
+
+
+
+
+
+ 
